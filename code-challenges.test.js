@@ -18,8 +18,8 @@ describe("fibonacciIt", () => {
     it("Takes in a number greater than two and returns an array that contains the numbers of the fibonacci sequence upto the length provided", () => {
         const fibLength1 = 6
         const fibLength2 = 10
-        expect(fibonacciIt(fibLength1)).toEqual([1,1,2,3,5,8])
-        expect(fibonacciIt(fibLength2)).toEqual([1,1,2,3,5,8,13,21,34, 55])
+        expect(fibonacciIt(fibLength1)).toEqual([1, 1, 2, 3, 5, 8])
+        expect(fibonacciIt(fibLength2)).toEqual([1, 1, 2, 3, 5, 8, 13, 21, 34, 55])
     })
 })
 
@@ -45,9 +45,9 @@ Logic:
 */
 
 const fibonacciIt = (num) => {
-    const fibArray = [1,1]
+    const fibArray = [1, 1]
     while (fibArray.length !== num) {
-        fibArray.push(fibArray[fibArray.length - 1] + fibArray[fibArray.length -2])
+        fibArray.push(fibArray[fibArray.length - 1] + fibArray[fibArray.length - 2])
     }
     return fibArray
 }
@@ -56,6 +56,13 @@ const fibonacciIt = (num) => {
     fibonacciIt
         ✓ Takes in a number greater than two and returns an array that contains the numbers of the fibonacci sequence upto the length provided (2 ms)
 */
+
+/* Refactor 
+    - I can't think of another way to get the same results
+*/
+
+
+
 // --------------------------------- Question 2 --------------------------------- //
 // Create a function that takes in an array and returns a new array of only odd numbers sorted from least to greatest.
 
@@ -64,7 +71,7 @@ describe("sortOddNums", () => {
     it("Take in an array containing any datatype and returns a new array of the odd numbers, sorted from least to greatest", () => {
         const fullArr1 = [4, 9, 0, "7", 8, true, "hey", 7, 199, -9, false, "hola"]
         const fullArr2 = ["hello", 7, 23, -823, false, 78, null, "67", 6, "number"]
-        expect(sortOddNums(fullArr1)).toEqual([-9, 7,  9, 199])
+        expect(sortOddNums(fullArr1)).toEqual([-9, 7, 9, 199])
         expect(sortOddNums(fullArr2)).toEqual([-823, 7, 23])
     })
 })
@@ -91,17 +98,17 @@ Logic:
     -   return sorted oddNumsArr
 */
 
-const sortOddNums = (inputArr) => {
-    const oddNumsArr = []
+// const sortOddNums = (inputArr) => {
+//     const oddNumsArr = []
 
-    for(let i = 0; i < inputArr.length; i++) {
-        if(typeof inputArr[i] === "number" && inputArr[i] % 2 !== 0) {
-            oddNumsArr.push(inputArr[i])
-        }
-    }
+//     for (let i = 0; i < inputArr.length; i++) {
+//         if (typeof inputArr[i] === "number" && inputArr[i] % 2 !== 0) {
+//             oddNumsArr.push(inputArr[i])
+//         }
+//     }
 
-    return oddNumsArr.sort((a,b) => a-b)
-}
+//     return oddNumsArr.sort((a, b) => a - b)
+// }
 
 /* Green Test Successfully Ran
     PASS  ./code-challenges.test.js
@@ -111,34 +118,41 @@ const sortOddNums = (inputArr) => {
         ✓ Take in an array containing any datatype and returns a new array of the odd numbers, sorted from least to greatest (1 ms)
 */
 
+/* Refactor */
+
+const sortOddNums = (inputArr) => {
+    const oddNumsArr = inputArr.filter(item => typeof item === "number" && item % 2 !== 0).sort((a, b) => a - b)
+    return oddNumsArr
+}
+
 // --------------------------------- Question 3 --------------------------------- //
 // Create a function that takes in an array and returns an array of the accumulating sum. An empty array should return an empty array.
 
 // a) Create a test with expect statements for each of the variables provided.
 
-describe("addItUp", () => { 
+describe("addItUp", () => {
     it("Takes in an array of numbers and returns an array of the accumulated sum", () => {
         const numbersToAdd1 = [2, 4, 45, 9]
         const numbersToAdd2 = [0, 7, -8, 12]
-        expect(addItUp(numbersToAdd1)).toEqual([2,6,51,60])
-        expect(addItUp(numbersToAdd2)).toEqual([0,7,-1,11])
+        expect(addItUp(numbersToAdd1)).toEqual([2, 6, 51, 60])
+        expect(addItUp(numbersToAdd2)).toEqual([0, 7, -1, 11])
     }),
-    it("Should return an empty array if an empty array is provided", () => {
-        const numbersToAdd3 = []
-        expect(addItUp(numbersToAdd3)).toEqual([])
-    })
- })
+        it("Should return an empty array if an empty array is provided", () => {
+            const numbersToAdd3 = []
+            expect(addItUp(numbersToAdd3)).toEqual([])
+        })
+})
 
- /* Red Test Failed Successfully
-    FAIL  ./code-challenges.test.js
-    fibonacciIt
-        ✓ Takes in a number greater than two and returns an array that contains the numbers of the fibonacci sequence upto the length provided (2 ms)
-    sortOddNums
-        ✓ Take in an array containing any datatype and returns a new array of the odd numbers, sorted from least to greatest (1 ms)
-    addItUp
-        ✕ Takes in an array of numbers and returns an array of the accumulated sum (1 ms)
-        ✕ Should return an empty array if an empty array is provided (1 ms)
-    ReferenceError: addItUp is not defined
+/* Red Test Failed Successfully
+   FAIL  ./code-challenges.test.js
+   fibonacciIt
+       ✓ Takes in a number greater than two and returns an array that contains the numbers of the fibonacci sequence upto the length provided (2 ms)
+   sortOddNums
+       ✓ Take in an array containing any datatype and returns a new array of the odd numbers, sorted from least to greatest (1 ms)
+   addItUp
+       ✕ Takes in an array of numbers and returns an array of the accumulated sum (1 ms)
+       ✕ Should return an empty array if an empty array is provided (1 ms)
+   ReferenceError: addItUp is not defined
 */
 
 // b) Create the function that makes the test pass.
@@ -155,17 +169,17 @@ Logic:
     - return newArr
 */
 
-const addItUp = (numsArr) => {
-    const newArr = []
-    if(numsArr.length === 0) {
-        return newArr
-    }
-    newArr.push(numsArr[0])
-    for(let i = 0; i < numsArr.length-1; i++) {
-        newArr.push(newArr[i] + numsArr[i+1])
-    }
-    return newArr
-}
+// const addItUp = (numsArr) => {
+//     const newArr = []
+//     if (numsArr.length === 0) {
+//         return newArr
+//     }
+//     newArr.push(numsArr[0])
+//     for (let i = 0; i < numsArr.length - 1; i++) {
+//         newArr.push(newArr[i] + numsArr[i + 1])
+//     }
+//     return newArr
+// }
 
 /* Green Test Passed Successfully
     PASS  ./code-challenges.test.js`
@@ -178,3 +192,15 @@ const addItUp = (numsArr) => {
         ✓ Should return an empty array if an empty array is provided` 
 
 */
+
+/* Refactor */
+
+const addItUp = numsArr => {
+    const newArr = []
+    !numsArr ? numsArr : newArr.push(numsArr[0])
+
+    for (let i = 0; i < numsArr.length - 1; i++) {
+        newArr.push(newArr[i] + numsArr[i + 1])
+    }
+    return newArr
+}
