@@ -35,22 +35,32 @@ Then, research the question to expand on your answer. Even if you feel you have 
       > Yarn is a resource package manager similar to NPM or NPX. It's used to track, maintain and remove numerous software packages hosted in on online database. Its commonly used at Learn Academy to install packages like create-react-app and jest, as well as running a basic server to test react applications.
       Typically when you run the yarn command it creates a yarn.lock, package.json, and node modules sub-folder. The package.json file has a few details about the application like app name, version and a minimal list of dependency software packages needed for your application. The yarn.lock file is more verbose having every package name and version required for every dependency and sub-dependency of every package you require for your application. The node modules folder that is created is all the software dependencies pulled down from the web and installed locally to that project.
     - Researched answer:
-      > b
+      > Yarn stands for Yet Another Resource Negotiator which was created by Facebook in cooperation with Exponent, Google, and Tilde to find a better 'NPM'. Yarn was created to be more secure, more efficient, and be more consistent. The initialization of Yarn install creates a package.json, yarn.lock, and node_modules folder with projects root folder. The install process consists of three steps: resolution, fetching, and linking. The resolution step finds all the dependencies and sub-dependencies using the registry. The fetching step checks all the offline folders to see if the dependencies need to be downloaded, if needed the installs will be downloaded. The linking step copies any global installs that are necessary to the projects node_modules directory.
 
 6. STRETCH: What is an anonymous function in JavaScript?
     - Your answer:
-      > a
+      > An anonymous function in JavaScript is a function without a name. Anonymous functions are used when it may not want to be able to be directly called but can be built-in in a process where a function call uses an anonymous function to return some modified code.
     - Researched answer:
-      > b
+      > Since anonymous functions aren't named they can't usually be accessed after its initial creation, hence anonymous. Anonymous functions are used in callbacks, arguments to functions, or even closures.
 
 ## Looking Ahead: Terms for Next Week
 
 1. Conditional rendering:
+   - Researched answer:
+      > Conditional rendering is a term to describe the ability to render different user interface markup if a conditional is true or false.
 
 2. Object-oriented programming:
+   - Researched answer:
+      > OOP or Object Oriented Programming is the programming paradigm that relies on the concept of classes and objects vs functions and logic. It focuses on what objects you can manipulate rather than the logic required to manipulate them.
 
 3. Ruby:
+   - Researched answer:
+      > Ruby is a dynamic open source programming language with a focus on simplicity and productivity. Created by Yukihiro Matsumoto in 1995. Ruby is an interpreted, high level, and general purpose programming language.
 
 4. Ruby blocks:
+   - Researched answer:
+      > Ruby blocks are another name for a method or closures in other programming languages, but it doesn't belong to an object. A block accepts and argument and returns a value, blocks don't have their own name, and consist of chunks of code.
 
 5. Ruby hashes:
+   - Researched answer:
+      > Ruby hashes are dictionary-like collections of unique keys and their values. They are also called associative arrays, but where arrays use integers as its index, hashes use any object type.
